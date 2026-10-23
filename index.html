@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Studio | Creative Digital Agency</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #7c3aed;
+            --secondary: #ec4899;
+            --dark: #171326;
+            --light: #f8f7ff;
+            --text: #686579;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: rgba(255,255,255,0.92);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 3px 20px #17132608;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px #7c3aed35;
+        }
+
+        .hero {
+            min-height: 82vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
+            gap: 50px;
+            background:
+                radial-gradient(circle at 80% 25%, #e9d5ff 0, transparent 30%),
+                radial-gradient(circle at 10% 90%, #fce7f3 0, transparent 30%);
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 30px;
+            background: #ede9fe;
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            font-size: clamp(40px, 5vw, 66px);
+            line-height: 1.15;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            color: var(--text);
+            line-height: 1.9;
+            max-width: 510px;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-height: 440px;
+            object-fit: cover;
+            border-radius: 28px;
+            box-shadow: 0 25px 70px #7c3aed20;
+        }
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 48px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            margin-bottom: 14px;
+        }
+
+        .section-heading p {
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 32px;
+            border: 1px solid #eeeaf8;
+            border-radius: 22px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 45px #1713260d;
+        }
+
+        .service-icon {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 12px;
+            font-size: 19px;
+        }
+
+        .service-card p {
+            color: var(--text);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--text);
+            line-height: 2;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 65px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stats h3 {
+            font-size: 30px;
+            color: var(--primary);
+        }
+
+        .stats p {
+            font-size: 13px;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #f3e8ff, #fce7f3);
+        }
+
+        .contact-form {
+            max-width: 620px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 24px;
+            box-shadow: 0 15px 50px #7c3aed0c;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 16px;
+            border: 1px solid #e7e3ef;
+            border-radius: 10px;
+            font: inherit;
+            outline: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .contact-form textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 28px 8%;
+            font-size: 13px;
+        }
+
+        footer p {
+            color: #c9c4d8;
+            margin-top: 8px;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 25px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 800px) {
+            nav {
+                padding: 18px 6%;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                padding: 25px;
+                background: white;
+                flex-direction: column;
+                gap: 22px;
+                box-shadow: 0 10px 20px #1713260c;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 65px 6%;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-image {
+                width: 100%;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                gap: 30px;
+            }
+
+            .contact-form {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#home" class="logo">Nova<span>.</span></a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false">☰</button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="btn">Let's Talk ↗</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="tag">✦ CREATIVE DIGITAL STUDIO</span>
+
+                <h1>Ideas into <span>Digital Magic.</span></h1>
+
+                <p>
+                    We create beautiful digital experiences that help
+                    brands stand out, connect with people, and grow
+                    with confidence.
+                </p>
+
+                <a href="#services" class="btn">Explore Services →</a>
+            </div>
+
+            <div class="hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85"
+                    alt="Modern creative studio workspace">
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="section-heading">
+                <span class="tag">WHAT WE DO</span>
+                <h2>Creative solutions for your brand</h2>
+                <p>
+                    Everything you need to build a memorable
+                    and powerful online presence.
+                </p>
+            </div>
+
+            <div class="services">
+                <article class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>UI/UX Design</h3>
+                    <p>
+                        Clean, attractive and user-friendly designs
+                        that make every digital experience better.
+                    </p>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Web Development</h3>
+                    <p>
+                        Responsive and modern websites designed
+                        to work smoothly across different devices.
+                    </p>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Digital Marketing</h3>
+                    <p>
+                        Creative content and digital strategies
+                        to help your brand reach more people.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="about-content">
+                <span class="tag">ABOUT NOVA</span>
+                <h2>We turn imagination into reality.</h2>
+                <p>
+                    At Nova Studio, we believe every great idea deserves
+                    a beautiful digital presence. Our approach combines
+                    creativity, technology and thoughtful design to
+                    create experiences that people remember.
+                </p>
+
+                <div class="stats">
+                    <div>
+                        <h3>Creative</h3>
+                        <p>Ideas that stand out</p>
+                    </div>
+                    <div>
+                        <h3>Modern</h3>
+                        <p>Design that feels fresh</p>
+                    </div>
+                    <div>
+                        <h3>Responsive</h3>
+                        <p>Made for every screen</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="section-heading">
+                <span class="tag">GET IN TOUCH</span>
+                <h2>Have a project in mind?</h2>
+                <p>Tell us about your idea. Let's create something amazing.</p>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <input type="text" id="name"
+                       placeholder="Your full name" required>
+
+                <input type="email" id="email"
+                       placeholder="Your email address" required>
+
+                <textarea id="message"
+                          placeholder="Tell us about your project..."
+                          required></textarea>
+
+                <button type="submit" class="btn">
+                    Send Message ↗
+                </button>
+
+                <p id="formMessage"
+                   role="status"
+                   style="margin-top:15px;text-align:center;color:#7c3aed">
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#home" class="logo">Nova<span>.</span></a>
+        <p>© <span id="year"></span> Nova Studio. Made with creativity.</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("active");
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰";
+            });
+        });
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        document.getElementById("contactForm").addEventListener(
+            "submit",
+            function (event) {
+                event.preventDefault();
+
+                const name = document.getElementById("name").value.trim();
+
+                document.getElementById("formMessage").textContent =
+                    "Thanks, " + name +
+                    "! The demo form works, but messages are not sent yet.";
+
+                this.reset();
+            }
+        );
+    </script>
+
+</body>
+</html>
